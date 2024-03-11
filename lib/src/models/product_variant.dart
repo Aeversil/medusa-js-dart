@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:medusa_js_dart/medusa_js_dart.dart';
 import 'package:medusa_js_dart/src/models/money_amount.dart';
 import 'package:medusa_js_dart/src/models/product.dart';
 import 'package:medusa_js_dart/src/models/product_option_value.dart';
@@ -38,6 +39,8 @@ class ProductVariant {
     this.deletedAt,
     this.metadata,
     this.purchasable,
+    this.images,
+    this.thumbnail,
   });
   factory ProductVariant.fromJson(Map<String, dynamic> json) =>
       _$ProductVariantFromJson(json);
@@ -109,6 +112,12 @@ class ProductVariant {
 
   /// The details of the product options that this product variant defines values for.
   List<ProductOptionValue>? options;
+
+  /// The details of the product's images.
+  List<Image>? images;
+
+  /// A URL to an image file that can be used to identify the Product.
+  String? thumbnail;
 
   /// The details inventory items of the product variant.
   List<ProductVariantInventoryItem>? inventoryItems;

@@ -38,6 +38,8 @@ class PricedVariant extends ProductVariant {
     required super.updatedAt,
     super.deletedAt,
     super.metadata,
+    super.images,
+    super.thumbnail,
     super.purchasable,
     this.originalPrice,
     this.calculatedPrice,
