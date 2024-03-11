@@ -45,6 +45,10 @@ ProductVariant _$ProductVariantFromJson(Map<String, dynamic> json) =>
       deletedAt: json['deleted_at'] as String?,
       metadata: json['metadata'] as Map<String, dynamic>?,
       purchasable: json['purchasable'] as bool?,
+      images: (json['images'] as List<dynamic>?)
+          ?.map((e) => Image.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      thumbnail: json['thumbnail'] as String?,
     );
 
 Map<String, dynamic> _$ProductVariantToJson(ProductVariant instance) {
@@ -79,6 +83,8 @@ Map<String, dynamic> _$ProductVariantToJson(ProductVariant instance) {
   writeNotNull('height', instance.height);
   writeNotNull('width', instance.width);
   writeNotNull('options', instance.options?.map((e) => e.toJson()).toList());
+  writeNotNull('images', instance.images?.map((e) => e.toJson()).toList());
+  writeNotNull('thumbnail', instance.thumbnail);
   writeNotNull('inventory_items',
       instance.inventoryItems?.map((e) => e.toJson()).toList());
   val['created_at'] = instance.createdAt;

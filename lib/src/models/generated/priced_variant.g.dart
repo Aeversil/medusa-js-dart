@@ -44,6 +44,10 @@ PricedVariant _$PricedVariantFromJson(Map<String, dynamic> json) =>
       updatedAt: json['updated_at'] as String,
       deletedAt: json['deleted_at'] as String?,
       metadata: json['metadata'] as Map<String, dynamic>?,
+      images: (json['images'] as List<dynamic>?)
+          ?.map((e) => Image.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      thumbnail: json['thumbnail'] as String?,
       purchasable: json['purchasable'] as bool?,
       originalPrice: (json['original_price'] as num?)?.toDouble(),
       calculatedPrice: (json['calculated_price'] as num?)?.toDouble(),
@@ -91,6 +95,8 @@ Map<String, dynamic> _$PricedVariantToJson(PricedVariant instance) {
   writeNotNull('height', instance.height);
   writeNotNull('width', instance.width);
   writeNotNull('options', instance.options?.map((e) => e.toJson()).toList());
+  writeNotNull('images', instance.images?.map((e) => e.toJson()).toList());
+  writeNotNull('thumbnail', instance.thumbnail);
   writeNotNull('inventory_items',
       instance.inventoryItems?.map((e) => e.toJson()).toList());
   val['created_at'] = instance.createdAt;
