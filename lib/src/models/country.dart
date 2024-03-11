@@ -23,7 +23,7 @@ class Country {
   Map<String, dynamic> toJson() => _$CountryToJson(this);
 
   /// The country's ID
-  String id;
+  int id;
 
   /// The 2 character ISO code of the country in lower case
   String iso2;
